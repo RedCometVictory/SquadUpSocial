@@ -1,0 +1,15 @@
+#dependencies
+/node_modules
+.env
+
+# production
+/build
+/public
+/dist
+/sample-dist
+default.json
+# config/*.sql
+config/example-databases
+config/example-databases/*.sql
+config/*.json
+*.rest
