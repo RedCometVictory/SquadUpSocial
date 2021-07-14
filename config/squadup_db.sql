@@ -5,7 +5,9 @@
 -- \l list all databases
 -- \dt show all tables in current selected database
 
-CREATE DATABASE squadup_social;
+-- can be skipped if db already created via heroku cli
+-- CREATE DATABASE squadup_social;
+
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE users(
