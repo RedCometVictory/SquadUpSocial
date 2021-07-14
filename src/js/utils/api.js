@@ -1,10 +1,13 @@
+require('dotenv').config();
 import Axios from 'axios';
 import store from '../redux/store';
 import { LOGOUT } from '../redux/constants/authConstants';
 
 const api = Axios.create({
-  baseURL: 'http://localhost:5000/api',
-  // baseURL: '/api',
+  // baseURL: 'http://localhost:5000/api',
+  // const baseURL = `${process.env.HEROKU_DOMAIN}/api`;
+  baseURL: '/api',
+  // baseURL: '/',
   // data: data,
   // headers: {
     // "Authorization": "Bearer "+localStorage.getItem("token"),

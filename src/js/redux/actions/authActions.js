@@ -1,3 +1,4 @@
+require('dotenv').config();
 import api from '../../utils/api';
 import { setAlert } from './alertActions';
 import {
@@ -24,7 +25,10 @@ const config = {
 import setAuthToken from '../../utils/setAuthToken';
 import authReducer from '../reducers/authReducer';
 
-const baseURL = 'http://localhost:5000/api';
+// const baseURL = 'http://localhost:5000/api';
+// const baseURL = `${process.env.HEROKU_DOMAIN}/api`;
+const baseURL = '/api';
+// const baseURL = '/';
 // loadUser - action checks to see if token exists, if so place token into global header (Authorization: "Bearer " + payload.token). Set global header if there is a token in LS.
 // Treat user as logged in. Even if current tab is closed. Run this action dispatch (via App.js) as it only checks the first time the user loads.
 // transfer data from action to reducer via dispatch
