@@ -1,9 +1,9 @@
+require('dotenv').config();
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
 const cors = require('cors');
 const path = require('path');
-require('dotenv').config();
 
 // heroku address
 const HOST = process.env.HEROKU_DOMAIN;
