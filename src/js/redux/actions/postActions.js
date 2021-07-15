@@ -26,9 +26,9 @@ import {
 import { addPostForm, editPostForm, addCommentForm } from '../../utils/formDataServices';
 
 // const baseURL = 'http://localhost:5000/api';
-// const baseURL = `${process.env.HEROKU_DOMAIN}/api`;
-const baseURL = '/api';
-const baseURL = '/';
+const baseURL = `${process.env.HEROKU_DOMAIN}/api`;
+// const baseURL = '/api';
+// const baseURL = '/';
 const config = {
   headers: {
     'Content-Type': 'multipart/form-data'
