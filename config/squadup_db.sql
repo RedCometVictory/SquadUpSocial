@@ -102,23 +102,23 @@ CREATE TABLE likes(
 );
 
 -- this table not used
-CREATE TYPE member_status AS ENUM ('joined', 'banned');
-CREATE TABLE members(
-  member member_status,
-  circle_id UUID,
-  user_id UUID,
-  PRIMARY KEY (circle_id, user_id),
-  FOREIGN KEY (circle_id) REFERENCES circles(id) ON DELETE CASCADE,
-  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-);
+-- CREATE TYPE member_status AS ENUM ('joined', 'banned');
+-- CREATE TABLE members(
+  -- member member_status,
+  -- circle_id UUID,
+  -- user_id UUID,
+  -- PRIMARY KEY (circle_id, user_id),
+  -- FOREIGN KEY (circle_id) REFERENCES circles(id) ON DELETE CASCADE,
+  -- FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+-- );
 
 -- this table is not used
-CREATE TABLE circles(
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  owner UUID,
-  title VARCHAR(360) NOT NULL UNIQUE,
-  categories TEXT NOT NULL,
-  tagline TEXT NOT NULL,
-  FOREIGN KEY (owner) REFERENCES users(id) ON DELETE SET NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+-- CREATE TABLE circles(
+  -- id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  -- owner UUID,
+  -- title VARCHAR(360) NOT NULL UNIQUE,
+  -- categories TEXT NOT NULL,
+  -- tagline TEXT NOT NULL,
+  -- FOREIGN KEY (owner) REFERENCES users(id) ON DELETE SET NULL,
+  -- created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+-- );
