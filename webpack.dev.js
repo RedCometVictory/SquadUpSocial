@@ -1,4 +1,5 @@
 const path = require("path");
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -47,7 +48,7 @@ module.exports = {
     extensions: [".js", ".jsx"],
   },
   // when using adonis/ejs/react-router - comment out the entire plugins section
-  // plugins: [ // ---
+  plugins: [ // ---
     // new HtmlWebpackPlugin({ // ---
       // inject: true,
       // inject: false,  // set to false to stop WP from creating "default" script tags in html   // ---
@@ -59,7 +60,16 @@ module.exports = {
       // template: "./public/index.html",
       // filename: "index.html" // for prod, destination is output url
     // }),  // ---
-  // ],  // ---
+    // allow for env in client-side react
+    new Dotenv({
+      path: './.env', // load this now instead of the ones in '.env'
+      safe: false, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
+      allowEmptyValues: true, // allow empty variables (e.g. `FOO=`) (treat it as empty string, rather than missing)
+      systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
+      silent: false, // hide any errors
+      defaults: false // load '.env.defaults' as the default values if empty.
+    })
+  ],  // ---
   module: {
     rules: [
       {

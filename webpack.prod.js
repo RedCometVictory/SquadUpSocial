@@ -1,5 +1,6 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
@@ -92,7 +93,15 @@ module.exports = {
     // removeComments: true
     // }
     // }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new Dotenv({
+      path: './.env', // load this now instead of the ones in '.env'
+      safe: false, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
+      allowEmptyValues: true, // allow empty variables (e.g. `FOO=`) (treat it as empty string, rather than missing)
+      systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
+      silent: false, // hide any errors
+      defaults: false // load '.env.defaults' as the default values if empty.
+    })
   ],
   optimization: {
     splitChunks: {
