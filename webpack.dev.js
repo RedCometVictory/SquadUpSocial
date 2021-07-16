@@ -1,5 +1,5 @@
 const path = require("path");
-const Dotenv = require('dotenv-webpack');
+// const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -61,14 +61,15 @@ module.exports = {
       // filename: "index.html" // for prod, destination is output url
     // }),  // ---
     // allow for env in client-side react
-    new Dotenv({
-      path: './.env', // load this now instead of the ones in '.env'
-      safe: false, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
-      allowEmptyValues: true, // allow empty variables (e.g. `FOO=`) (treat it as empty string, rather than missing)
-      systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
-      silent: false, // hide any errors
-      defaults: false // load '.env.defaults' as the default values if empty.
-    })
+    // config.plugins.push('new dotenv())
+    // new Dotenv({
+    //   path: path.resolve(process.cwd(), '.env'), // load this now instead of the ones in '.env'
+    //   // safe: false, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
+    //   allowEmptyValues: true, // allow empty variables (e.g. `FOO=`) (treat it as empty string, rather than missing)
+    //   systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
+    //   // silent: false, // hide any errors
+    //   // defaults: false // load '.env.defaults' as the default values if empty.
+    // })
   ],  // ---
   module: {
     rules: [

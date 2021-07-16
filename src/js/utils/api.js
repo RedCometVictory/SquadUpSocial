@@ -5,7 +5,8 @@ import { LOGOUT } from '../redux/constants/authConstants';
 
 const api = Axios.create({
   // baseURL: 'http://localhost:5000/api',
-  baseURL: `${process.env.HEROKU_DOMAIN}/api`,
+  // baseURL: `${process.env.HEROKU_DOMAIN}/api`,
+  baseURL: `https://squadupsocial.herokuapp.com/api`,
   // baseURL: '/api',
   // baseURL: '/',
   // data: data,
