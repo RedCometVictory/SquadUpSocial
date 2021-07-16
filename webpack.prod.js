@@ -28,6 +28,11 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ["babel-loader"]
+        // ==================================
+        // options: {
+          // presets: ['@babel/preset-env'],
+          // plugins: ['@babel/plugin-proposal-class-properties']
+        // ==================================
       },
       // ========================================
       // Comment out section if using gulp to minify files or using static site development
@@ -44,7 +49,7 @@ module.exports = {
         // path.resolve(__dirname, "./src/sass")
         // ],
         use: [
-          "style-loader",
+          // "style-loader",
           MiniCssExtractPlugin.loader, //3. Extract css into files
           "css-loader", //2. Turns css into commonjs
           "postcss-loader",
@@ -127,9 +132,9 @@ module.exports = {
       new UglifyJsPlugin({
         uglifyOptions: {
           sourceMap: true,
-          compress: {},
+          compress: {} ,
           mangle: false,
-          output: null
+          output: { beautify: true }
         }
       })
     ],

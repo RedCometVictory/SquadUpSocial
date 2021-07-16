@@ -97,6 +97,7 @@ module.exports = {
       // ========================================
       // ========================================
       // uncomment if not using gulp or if importing stylings through react components
+      // **https://www.npmjs.com/package/mini-css-extract-plugin for info on using "style-loader" (for dev only) and "MiniCssExtractPlugin.loader" (for prod only)
       {
         test: /\.scss$/,
         use: [

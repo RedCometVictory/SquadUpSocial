@@ -1,21 +1,37 @@
 {
   "presets": [
-    "@babel/preset-env",
+    [
+      "@babel/preset-env",
+      {
+        "loose": true
+      }
+    ],
     "@babel/preset-react"
   ],
+  // use assumptions instead of loose: true for the plugins below in order to void conflicts
+  "assumptions": {
+    "setPublicClassFields": true,
+    "privateFieldsAsProperties": true
+  },
   "plugins": [
+    // [
+      "@babel/plugin-proposal-private-methods",
+    //   {
+    //     "loose": true
+    //   }
+    // ],
     [
       "@babel/plugin-proposal-decorators",
       {
         "legacy": true
       }
     ],
-    [
+    // [
       "@babel/plugin-proposal-class-properties",
-      {
-        "loose": true
-      }
-    ],
+    //   {
+    //     "loose": true
+    //   }
+    // ],
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-transform-async-to-generator"
   ]
