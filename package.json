@@ -21,7 +21,7 @@
     "webpack-dev": "webpack --config webpack.dev.js",
     "webpack-build": "webpack --config webpack.prod.js",
     "images": "gulp images",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix dist && npm run webpack-build --prefix dist"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run webpack-build"
   },
   "author": "Jor-EL Sanchez",
   "license": "ISC",
