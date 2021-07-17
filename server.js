@@ -40,9 +40,9 @@ app.use('/api/profile', profileRoutes);
 app.use('/api/users', usersRoutes); // '/users' = '/'
 
 // Serve static assets in production
-if (process.env.NODE_ENV === 'production') {
+// if (process.env.NODE_ENV === 'production') {
   // Set static folder
-  app.use(express.static('dist'));
+  app.use(express.static(path.resolve(__dirname, 'dist')));
   // app.use(express.static('./dist'));
   // app.use(express.static('client/build'));
 
@@ -50,7 +50,7 @@ if (process.env.NODE_ENV === 'production') {
   //   // res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
   });
-}
+// }
 
 // 404 -- not needed if 404 page exists
 // app.get('*', (req, res) => {
