@@ -19,6 +19,8 @@ app.use(cors({
     credentials: true // for cookies exchanged w/frontend
 }));
 
+app.use(express.static(path.resolve(__dirname, 'dist')));
+
 // Routes
 const authRoutes = require('./routes/authRoutes');
 const postsRoutes = require('./routes/postsRoutes');
@@ -29,8 +31,6 @@ const usersRoutes = require('./routes/usersRoutes');
 app.use(express.json({
   // extended: false
 }));
-
-app.use(express.static(path.resolve(__dirname, 'dist')));
 
 // send data - backend npm run server (nodemon)
 app.get('/', async (req, res, next) => res.send("API is running..."));
