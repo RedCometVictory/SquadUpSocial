@@ -30,6 +30,8 @@ app.use(express.json({
   // extended: false
 }));
 
+app.use(express.static(path.resolve(__dirname, 'dist')));
+
 // send data - backend npm run server (nodemon)
 app.get('/', async (req, res, next) => res.send("API is running..."));
 
@@ -42,7 +44,7 @@ app.use('/api/users', usersRoutes); // '/users' = '/'
 // Serve static assets in production
 // if (process.env.NODE_ENV === 'production') {
   // Set static folder
-app.use(express.static(path.resolve(__dirname, 'dist')));
+// app.use(express.static(path.resolve(__dirname, 'dist')));
   // app.use(express.static('./dist'));
   // app.use(express.static('client/build'));
 
