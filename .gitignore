@@ -6,7 +6,7 @@ node_modules/
 # production
 /build
 /public
-/dist
+
 /sample-dist
 default.json
 # config/*.sql

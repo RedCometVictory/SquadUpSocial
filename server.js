@@ -4,6 +4,9 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const cors = require('cors');
 const path = require('path');
+const http = require("http");
+
+// const server = http.createServer(app);
 
 // heroku address
 const HOST = process.env.HEROKU_DOMAIN;
@@ -62,4 +65,5 @@ app.get('*', (req, res) => {
 
 // database server
 const PORT = process.env.PORT || 5000;
+server.listen(PORT, () => console.log(`Server started on port: ${PORT}`));
 app.listen(PORT, () => console.log(`Server started on port: ${PORT}`));
