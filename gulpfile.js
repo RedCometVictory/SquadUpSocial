@@ -1,7 +1,8 @@
 // open shell terminal with gulp to access webpack
 const { src, dest, series, parallel, watch } = require("gulp");
 let exec = require("child_process").exec;
-const sass = require("gulp-sass");
+// const sass = require("gulp-sass");
+const sass = require('gulp-sass')(require('node-sass'));
 const autoprefixer = require("gulp-autoprefixer");
 const imagemin = require("gulp-imagemin");
 const ejs = require('gulp-ejs');
