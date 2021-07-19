@@ -28,7 +28,7 @@ app.use(cors({
 }));
 
 // ****** use in PRODUCTION DEPLOYMENT
-app.use(express.static(path.resolve(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, '/dist')));
 
 // Routes
 const authRoutes = require('./routes/authRoutes');
@@ -42,7 +42,7 @@ app.use(express.json({
 }));
 
 // send data - backend npm run server (nodemon)
-app.get('/', async (req, res, next) => res.send("API is running..."));
+// app.get('/', async (req, res, next) => res.send("API is running..."));
 
 // define routes (to controllers) - change proxy to reflect url
 app.use('/api/auth', authRoutes);
@@ -59,9 +59,9 @@ app.use('/api/users', usersRoutes); // '/users' = '/'
 
 
 // ****** USE IN PRODUCTION DEPLOYMENT ******
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
   //   // res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  res.sendFile(path.resolve(__dirname, 'dist/index.html'));
+  res.sendFile(path.resolve(__dirname, '/dist/index.html'));
 });
 // }
 // ******************************************
