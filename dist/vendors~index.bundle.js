@@ -256,7 +256,7 @@
         }() || Function("return this")();
     }.call(this, n(134));
 }, function(e, t, n) {
-    e.exports = n(451)();
+    e.exports = n(452)();
 }, function(e, t) {
     e.exports = function(e) {
         return "object" == typeof e ? null !== e : "function" == typeof e;
@@ -2409,7 +2409,7 @@
     }(), e.exports = n(431);
 }, function(e, t, n) {
     "use strict";
-    e.exports = n(453);
+    e.exports = n(454);
 }, , function(e, t, o) {
     var r = o(5), o = o(7), i = r.document, a = o(i) && o(i.createElement);
     e.exports = function(e) {
@@ -3245,7 +3245,7 @@
         t.a = s;
     }.call(this, n(134));
 }, function(e, t, n) {
-    var r = n(454);
+    var r = n(455);
     e.exports = function d(e, t, n) {
         return r(t) || (n = t || n, t = []), n = n || {}, e instanceof RegExp ? function(e, t) {
             var n = e.source.match(/\((?!\?)/g);
@@ -4208,9 +4208,9 @@
     e.exports = function(e) {
         return new Promise(function(t, n) {
             var f = e.data, p = e.headers;
-            r.isFormData(f) && delete p["Content-Type"], (r.isBlob(f) || r.isFile(f)) && f.type && delete p["Content-Type"];
+            r.isFormData(f) && delete p["Content-Type"];
             var h, d = new XMLHttpRequest();
-            e.auth && (h = e.auth.username || "", g = unescape(encodeURIComponent(e.auth.password)) || "", 
+            e.auth && (h = e.auth.username || "", g = e.auth.password ? unescape(encodeURIComponent(e.auth.password)) : "", 
             p.Authorization = "Basic " + btoa(h + ":" + g));
             var y, g = u(e.baseURL, e.url);
             if (d.open(e.method.toUpperCase(), a(g, e.params, e.paramsSerializer), !0), d.timeout = e.timeout, 
@@ -13587,7 +13587,7 @@
         return u(a(c.defaults, e));
     }, c.Cancel = n(187), c.CancelToken = n(449), c.isCancel = n(182), c.all = function(e) {
         return Promise.all(e);
-    }, c.spread = n(450), e.exports = c, e.exports.default = c;
+    }, c.spread = n(450), c.isAxiosError = n(451), e.exports = c, e.exports.default = c;
 }, function(e, t, n) {
     "use strict";
     var r = n(32), o = n(181), i = n(436), a = n(437), u = n(186);
@@ -13613,7 +13613,8 @@
         c.prototype[e] = function(t, n) {
             return this.request(u(n || {}, {
                 method: e,
-                url: t
+                url: t,
+                data: (n || {}).data
             }));
         };
     }), r.forEach([ "post", "put", "patch" ], function(e) {
@@ -13896,7 +13897,12 @@
     };
 }, function(e, t, n) {
     "use strict";
-    var r = n(452);
+    e.exports = function(e) {
+        return "object" == typeof e && !0 === e.isAxiosError;
+    };
+}, function(e, t, n) {
+    "use strict";
+    var r = n(453);
     function o() {}
     function i() {}
     i.resetWarningCache = o, e.exports = function() {

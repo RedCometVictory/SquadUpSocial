@@ -25,9 +25,9 @@ import {
 } from '../constants/postConstants';
 import { addPostForm, editPostForm, addCommentForm } from '../../utils/formDataServices';
 
-// const baseURL = 'http://localhost:5000/api';
+const baseURL = 'http://localhost:5000/api';
 // const baseURL = `${process.env.HEROKU_DOMAIN}/api`;
-const baseURL = `https://squadupsocial.herokuapp.com/api`;
+// const baseURL = `https://squadupsocial.herokuapp.com/api`;
 // const baseURL = '/api';
 // const baseURL = '/';
 const config = {

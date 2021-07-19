@@ -4,24 +4,30 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const cors = require('cors');
 const path = require('path');
-const http = require("http");
+// const http = require("http");
 
 // const server = http.createServer(app);
 
 // heroku address
 const HOST = process.env.HEROKU_DOMAIN;
+let whiteList;
 
 app.use(cookieParser());
 const pool = require ('./config/db');
-const whiteList = [
-    HOST
-];
+if (process.env.NODE_ENV === 'production') {
+  whiteList = [HOST];
+}
+
+if (process.env.NODE_ENV === 'development') {
+    whiteList = ['http://localhost:4500'];
+}
 // server can insteract witht the client
 app.use(cors({
     origin: whiteList,
     credentials: true // for cookies exchanged w/frontend
 }));
 
+// ****** use in PRODUCTION DEPLOYMENT
 app.use(express.static(path.resolve(__dirname, 'dist')));
 
 // Routes
@@ -51,19 +57,22 @@ app.use('/api/users', usersRoutes); // '/users' = '/'
   // app.use(express.static('./dist'));
   // app.use(express.static('client/build'));
 
+
+// ****** USE IN PRODUCTION DEPLOYMENT ******
 app.get('*', (req, res) => {
   //   // res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   res.sendFile(path.resolve(__dirname, 'dist/index.html'));
 });
 // }
+// ******************************************
 
 // 404 -- not needed if 404 page exists
 // app.get('*', (req, res) => {
 //     // res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-//   res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
+  // res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
 // });
 
 // database server
 const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => console.log(`Server started on port: ${PORT}`));
+// server.listen(PORT, () => console.log(`Server started on port: ${PORT}`));
 app.listen(PORT, () => console.log(`Server started on port: ${PORT}`));

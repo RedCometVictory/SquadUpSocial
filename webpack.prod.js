@@ -17,7 +17,8 @@ module.exports = {
   },
   output: {
     // final build goes into dist
-    filename: "[name].[contentHash].bundle.js",
+    filename: "[name].bundle.js",
+    // filename: "[name].[contentHash].bundle.js",
     // for static builds
     // filename: "[name].bundle.js",
     path: path.resolve(__dirname, "./dist")

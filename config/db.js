@@ -2,6 +2,7 @@ require('dotenv').config();
 
 // PostgreSQL
 const { Pool } = require('pg');
+
 /*
 // for local development
 const pool = new Pool({
@@ -33,7 +34,7 @@ const devConfig = `postgresql://${process.env.PG_USER}:${process.env.PG_PASSWORD
   
 // for production
   
-//value from heroku addons - connection sting to PG hosted via Heroku
+// value from heroku addons - connection sting to PG hosted via Heroku
 const proConfig = process.env.DATABASE_URL;
   
 const pool = new Pool({
